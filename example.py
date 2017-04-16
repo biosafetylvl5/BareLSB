@@ -1,19 +1,16 @@
 import cv2
 from BareLSB import BareLSB
 
-text = "Lorem ipsum dolor sit amet, ..."
+text = "Lorem ipsum dolor sit amet, ..." # Text to hide
 
-image_array = cv2.imread('0.jpg')
+Steg = BareLSB(cv2.imread('0.jpg')) # Initialize with image
+Steg.addStr(text) # Add secret text
 
-Steg = BareLSB(image_array)
-Steg.addStr(text)
-
-steg_image = Steg.image
-
-Steg = BareLSB(steg_image)
-print(Steg.getText())
+Steg = BareLSB(Steg.image) # New instance initilized with modified image
+print(Steg.getText()) # Get text from modified image
 
 cv2.imshow('Modified', Steg.image)
-cv2.imshow('Original', image_array)
+cv2.imshow('Original', cv2.imread('0.jpg'))
+print(Steg.image.all() == initial_image.all())
 cv2.waitKey(5000)
 cv2.destroyAllWindows()
