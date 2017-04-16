@@ -16,3 +16,8 @@ Steg.addStr(text) # Add secret text
 Steg = BareLSB(Steg.image) # New instance initilized with modified image
 print(Steg.getText()) # Get text from modified image
 ```
+
+## Features
+ - Text hiding/retrieving
+ - Binary hiding/retrieving
+ - SHA256 Checksum
