@@ -9,8 +9,9 @@ Steg.addStr(text) # Add secret text
 Steg = BareLSB(Steg.image) # New instance initilized with modified image
 print(Steg.getText()) # Get text from modified image
 
+# Use cv2 to compare images
 cv2.imshow('Modified', Steg.image)
 cv2.imshow('Original', cv2.imread('0.jpg'))
 print(Steg.image.all() == initial_image.all())
-cv2.waitKey(5000)
+cv2.waitKey(5000) # Wait 5 seconds before closing
 cv2.destroyAllWindows()
